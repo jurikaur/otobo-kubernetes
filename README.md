@@ -1,5 +1,6 @@
 # otobo-kubernetes
 OTOBO repository for Kubernetes
+Elasticsearch do not work, pod constanly crashing. Java error.
 
 Common commands:
 
