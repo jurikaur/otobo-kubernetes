@@ -11,3 +11,5 @@ spec:
       services:
         - name:  web
           port:  80
+  tls:
+    certResolver: letsencrypt
