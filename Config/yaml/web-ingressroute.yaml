@@ -6,7 +6,7 @@ spec:
   entryPoints:
    - websecure
   routes:
-    - match: Host('----')
+    - match: Host(`otobo.example.com`)
       kind: Rule
       services:
         - name:  web
