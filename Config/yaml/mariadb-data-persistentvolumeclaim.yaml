@@ -7,7 +7,6 @@ metadata:
   name: mariadb-data
   namespace: otobo
 spec:
-  storageClassName: managed-nfs-storage
   accessModes:
     - ReadWriteOnce
   resources:
