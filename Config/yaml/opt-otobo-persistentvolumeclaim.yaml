@@ -5,8 +5,8 @@ metadata:
   labels:
     io.kompose.service: opt-otobo
   name: opt-otobo
+  namespace: otobo
 spec:
-  storageClassName: managed-nfs-storage
   accessModes:
     - ReadWriteOnce
   resources:
