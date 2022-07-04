@@ -8,6 +8,7 @@ metadata:
   labels:
     io.kompose.service: web
   name: web
+  namespace: otobo
 spec:
   replicas: 1
   selector:
