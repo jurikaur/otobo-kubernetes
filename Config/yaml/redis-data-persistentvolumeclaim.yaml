@@ -5,8 +5,8 @@ metadata:
   labels:
     io.kompose.service: redis-data
   name: redis-data
+  namespace: otobo
 spec:
-  storageClassName: managed-nfs-storage
   accessModes:
     - ReadWriteOnce
   resources:
