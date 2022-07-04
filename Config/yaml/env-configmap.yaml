@@ -10,3 +10,4 @@ metadata:
   labels:
     io.kompose.service: daemon-env
   name: env
+  namespace: otobo
