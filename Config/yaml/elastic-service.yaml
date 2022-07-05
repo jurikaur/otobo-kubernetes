@@ -8,6 +8,7 @@ metadata:
   labels:
     io.kompose.service: elastic
   name: elastic
+  namespace: otobo
 spec:
   ports:
     - name: "9200"
@@ -16,4 +17,4 @@ spec:
   selector:
     io.kompose.service: elastic
 status:
-  loadBalancer: {}
+  clusterIP: {}
