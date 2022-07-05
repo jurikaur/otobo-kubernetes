@@ -36,7 +36,7 @@ spec:
                   name: env
             - name: discovery.type
               value: single-node
-          image: rotheross/otobo-elasticsearch:latest
+          image: rotheross/otobo-elasticsearch:latest-10_1
           name: elastic
           resources: {}
           volumeMounts:
