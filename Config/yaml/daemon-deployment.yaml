@@ -8,6 +8,7 @@ metadata:
   labels:
     io.kompose.service: daemon
   name: daemon
+  namespace: otobo
 spec:
   replicas: 1
   selector:
@@ -31,7 +32,10 @@ spec:
       containers:
         - command: ["/opt/otobo_install/entrypoint.sh"]
           args: ["daemon"]
-          image: rotheross/otobo:rel-10_0_8
+          env:
+            - name: OTOBO_SYNC_WITH_S3
+              value: "0"
+          image: rotheross/otobo:latest-10_1
           name: daemon
           resources: {}
           securityContext:
