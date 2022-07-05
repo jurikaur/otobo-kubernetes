@@ -34,7 +34,7 @@ spec:
           args: ["web"]
           env:
             - name: OTOBO_SYNC_WITH_S3
-              value: 0
+              value: "0"
             - name: OTOBO_DB_ROOT_PASSWORD
               valueFrom:
                 configMapKeyRef:
