@@ -8,6 +8,7 @@ metadata:
   labels:
     io.kompose.service: redis
   name: redis
+  namespace: otobo
 spec:
   ports:
     - name: "6379"
@@ -16,4 +17,4 @@ spec:
   selector:
     io.kompose.service: redis
 status:
-  loadBalancer: {}
+  ClusterIP: {}
