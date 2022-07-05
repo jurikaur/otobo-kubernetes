@@ -31,6 +31,7 @@ spec:
             - --character-set-server=utf8mb4
             - --collation-server=utf8mb4_unicode_ci
             - --innodb-log-file-size=268435456
+            - --query-cache-size=33554432
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
