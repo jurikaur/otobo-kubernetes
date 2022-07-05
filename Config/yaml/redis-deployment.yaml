@@ -29,7 +29,7 @@ spec:
         runAsUser: 999
         runAsGroup: 1000
       containers:
-        - image: redis:6.0.8-alpine
+        - image: redis:6.0-alpine
           name: redis
           resources: {}
           securityContext:
