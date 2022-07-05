@@ -44,6 +44,12 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: mariadb-data
+          securityContext:
+            capabilities:
+              drop:
+                - all
+              add:
+                - cap_sys_chroot
       restartPolicy: Always
       volumes:
         - name: mariadb-data
