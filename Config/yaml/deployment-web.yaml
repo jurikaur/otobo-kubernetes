@@ -47,44 +47,8 @@ spec:
             - name: opt-otobo
               mountPath: /opt/otobo
               subPath: otobo
-            - name: config
-              mountPath: /opt/otobo/Kernel
-              subPath: Kernel
-            - name: article
-              mountPath: /opt/otobo/var/article
-              subPath: article
-            - name: skins
-              mountPath: /opt/otobo/var/httpd/htdocs/skins/
-              subPath: skins
-            - name: backups
-              mountPath: /var/otobo/backups
-              subPath: backups
-            - name: addons
-              mountPath: /opt/otobo/addons
-              subPath: addons
-            - name: dbupgrade
-              mountPath: /opt/otobo/db_upgrade
-              subPath: db_upgrade
       restartPolicy: Always
       volumes:
-        - name: config
-          persistentVolumeClaim:
-            claimName: otobo-config
-        - name: article
-          persistentVolumeClaim:
-            claimName: otobo-article
-        - name: skins
-          persistentVolumeClaim:
-            claimName: otobo-skins
-        - name: backups
-          persistentVolumeClaim:
-            claimName: otobo-backups
-        - name: addons
-          persistentVolumeClaim:
-            claimName: otobo-addons
-        - name: dbupgrade
-          persistentVolumeClaim:
-            claimName: otobo-dbupgrade
         - name: opt-otobo
           persistentVolumeClaim:
             claimName: opt-otobo
