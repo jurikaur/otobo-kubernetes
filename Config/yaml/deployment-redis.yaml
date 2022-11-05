@@ -40,7 +40,8 @@ spec:
           name: config
       volumes:
         - name: data
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: redis-data
         - name: config
           configMap:
             name: redis-config
