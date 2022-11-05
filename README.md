@@ -6,7 +6,7 @@ OTOBO repository for Kubernetes.
 4. create deployments
 5. create services
 6. create ingressroute
-7. update web deployment config with correct DB info(empty database needed)
+7. http://localhost/otobo/installer.pl (empty database needed)
 
 Common commands:
 
