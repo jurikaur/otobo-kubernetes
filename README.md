@@ -1,7 +1,12 @@
 # otobo-kubernetes
 OTOBO repository for Kubernetes.
-
-* Elasticsearch do not work, pod constanly crashing. Java error.
+1. create namespace
+2. create configmaps
+3. create persistentvolumeclaims
+4. create deployments
+5. create services
+6. create ingressroute
+7. update web deployment config with correct DB info(empty database needed)
 
 Common commands:
 
