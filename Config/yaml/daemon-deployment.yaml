@@ -32,10 +32,7 @@ spec:
       containers:
         - command: ["/opt/otobo_install/entrypoint.sh"]
           args: ["daemon"]
-          env:
-            - name: OTOBO_SYNC_WITH_S3
-              value: "0"
-          image: rotheross/otobo:latest-10_1
+          image: rotheross/otobo:rel-10_0_8
           name: daemon
           resources: {}
           securityContext:
@@ -45,6 +42,7 @@ spec:
           volumeMounts:
             - mountPath: /opt/otobo
               name: opt-otobo
+              subPath: otobo
       restartPolicy: Always
       volumes:
         - name: opt-otobo
