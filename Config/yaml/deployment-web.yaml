@@ -8,6 +8,7 @@ metadata:
   labels:
     io.kompose.service: web
   name: web
+  namespace: otobo
 spec:
   replicas: 1
   selector:
@@ -37,7 +38,7 @@ spec:
                 configMapKeyRef:
                   key: OTOBO_DB_ROOT_PASSWORD
                   name: env
-          image: rotheross/otobo:rel-10_0_8
+          image: rotheross/otobo:rel-10_0_16
           name: web
           ports:
             - containerPort: 5000
@@ -45,7 +46,7 @@ spec:
           volumeMounts:
             - mountPath: /opt/otobo
               name: opt-otobo
-              subpath: otobo
+              subPath: otobo
       restartPolicy: Always
       volumes:
         - name: opt-otobo

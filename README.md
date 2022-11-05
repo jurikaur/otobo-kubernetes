@@ -8,6 +8,7 @@ OTOBO repository for Kubernetes.
 6. create ingressroute
 7. http://localhost/otobo/installer.pl
 8. web and daemon should run on same node if using longhorn(Multiattach error)
+9. disable redis in config file and set this in sysconfig.
 
 Common commands:
 
