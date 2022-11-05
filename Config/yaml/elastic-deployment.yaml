@@ -26,6 +26,8 @@ spec:
         io.kompose.service: elastic
     spec:
       securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
         fsGroup: 1000
       containers:
         - env:
@@ -36,12 +38,15 @@ spec:
                   name: env
             - name: discovery.type
               value: single-node
-          image: rotheross/otobo-elasticsearch:latest-10_1
+          image: rotheross/otobo-elasticsearch:latest
           name: elastic
+          ports:
+          - containerPort: 9200
           resources: {}
           volumeMounts:
             - mountPath: /usr/share/elasticsearch/data
               name: elasticsearch-data
+              subPath: data
       restartPolicy: Always
       volumes:
         - name: elasticsearch-data
