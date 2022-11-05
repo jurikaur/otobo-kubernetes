@@ -6,7 +6,8 @@ OTOBO repository for Kubernetes.
 4. create deployments
 5. create services
 6. create ingressroute
-7. http://localhost/otobo/installer.pl (empty database needed)
+7. http://localhost/otobo/installer.pl
+8. web and daemon should run on same node if using longhorn(Multiattach error)
 
 Common commands:
 
