@@ -44,18 +44,27 @@ spec:
             - containerPort: 5000
           resources: {}
           volumeMounts:
+            - name: opt-otobo
+              mountPath: /opt/otobo
+              subPath: otobo
             - name: config
               mountPath: /opt/otobo/Kernel
+              subPath: Kernel
             - name: article
               mountPath: /opt/otobo/var/article
+              subPath: article
             - name: skins
               mountPath: /opt/otobo/var/httpd/htdocs/skins/
+              subPath: skins
             - name: backups
               mountPath: /var/otobo/backups
+              subPath: backups
             - name: addons
               mountPath: /opt/otobo/addons
+              subPath: addons
             - name: dbupgrade
               mountPath: /opt/otobo/db_upgrade
+              subPath: db_upgrade
       restartPolicy: Always
       volumes:
         - name: config
@@ -76,4 +85,7 @@ spec:
         - name: dbupgrade
           persistentVolumeClaim:
             claimName: otobo-dbupgrade
+        - name: opt-otobo
+          persistentVolumeClaim:
+            claimName: opt-otobo
 status: {}
