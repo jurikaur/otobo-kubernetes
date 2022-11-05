@@ -8,7 +8,6 @@ metadata:
   labels:
     io.kompose.service: daemon
   name: daemon
-  namespace: otobo
 spec:
   replicas: 1
   selector:
@@ -32,7 +31,7 @@ spec:
       containers:
         - command: ["/opt/otobo_install/entrypoint.sh"]
           args: ["daemon"]
-          image: rotheross/otobo:rel-10_0_16
+          image: rotheross/otobo:rel-10_0_8
           name: daemon
           resources: {}
           securityContext:
@@ -40,8 +39,8 @@ spec:
               drop:
                 - ALL
           volumeMounts:
-            - name: opt-otobo
-              mountPath: /opt/otobo
+            - mountPath: /opt/otobo
+              name: opt-otobo
               subPath: otobo
       restartPolicy: Always
       volumes:
