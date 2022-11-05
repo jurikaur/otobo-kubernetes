@@ -38,18 +38,42 @@ spec:
                 configMapKeyRef:
                   key: OTOBO_DB_ROOT_PASSWORD
                   name: env
-          image: rotheross/otobo:rel-10_0_8
+          image: rotheross/otobo:rel-10_0_16
           name: web
           ports:
             - containerPort: 5000
           resources: {}
           volumeMounts:
-            - mountPath: /opt/otobo
-              name: opt-otobo
-              subpath: otobo
+            - name: config
+              mountPath: /opt/otobo/Kernel
+            - name: article
+              mountPath: /opt/otobo/var/article
+            - name: skins
+              mountPath: /opt/otobo/var/httpd/htdocs/skins/
+            - name: backups
+              mountPath: /var/otobo/backups
+            - name: addons
+              mountPath: /opt/otobo/addons
+            - name: dbupgrade
+              mountPath: /opt/otobo/db_upgrade
       restartPolicy: Always
       volumes:
-        - name: opt-otobo
+        - name: config
           persistentVolumeClaim:
-            claimName: opt-otobo
+            claimName: otobo-config
+        - name: article
+          persistentVolumeClaim:
+            claimName: otobo-article
+        - name: skins
+          persistentVolumeClaim:
+            claimName: otobo-skins
+        - name: backups
+          persistentVolumeClaim:
+            claimName: otobo-backups
+        - name: addons
+          persistentVolumeClaim:
+            claimName: otobo-addons
+        - name: dbupgrade
+          persistentVolumeClaim:
+            claimName: otobo-dbupgrade
 status: {}
