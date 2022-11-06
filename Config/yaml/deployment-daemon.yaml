@@ -43,9 +43,14 @@ spec:
             - mountPath: /opt/otobo
               name: opt-otobo
               subPath: otobo
+            - mountPath: /opt/otobo-backup
+              name: backups
       restartPolicy: Always
       volumes:
         - name: opt-otobo
           persistentVolumeClaim:
             claimName: opt-otobo
+        - name: backups
+          persistentVolumeClaim:
+            claimName: otobo-backup
 status: {}
