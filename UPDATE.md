@@ -16,3 +16,13 @@ Update process:
 15. Upgrade packages to correct version #bin/otobo.Console.pl Admin::Package::UpgradeAll
 17. Rebuild Config #bin/otobo.Console.pl Maint::Config::Rebuild
 18. Delete Cache #bin/otobo.Console.pl Maint::Cache::Delete
+19. check backup script. If needed activate it again.
+
+Alternative process:
+1. create storageclaim for upgrade.
+2. attach new disk to web pod ar add it permanently to deployment-web
+3. create script for updating otobo. (a. run backup script; b. make copy from otobo directory; c. wget new version; d. tar -xf new version; e. copy new files over old ones; f. verify Config.pm; g. check custom changed files and copy over if needed; h. check if database needs upgrade; i. run post update tasks;)
+4. stop Daemon
+5. update web deployment to new version
+5. execute update script.
+6. verify

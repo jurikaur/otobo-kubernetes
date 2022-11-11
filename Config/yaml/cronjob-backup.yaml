@@ -1,0 +1,48 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: backup-job
+  namespace: otobo
+spec:
+  schedule: "0 6 * * *"
+  concurrencyPolicy: Allow
+  suspend: false
+  successfulJobsHistoryLimit: 10
+  failedJobsHistoryLimit: 3
+  startingDeadlineSeconds: 60
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
+          containers:
+          - name: backup-job
+            image: rotheross/otobo:rel-10_1_1
+            imagePullPolicy: IfNotPresent
+            command:
+            - /opt/otobo_install/entrypoint.sh
+            - /opt/otobo/scripts/backup.pl -d /opt/otobo-backup/ -c gzip -r 30 -t fullbackup
+            args: ["web"]
+            env:
+            - name: OTOBO_DB_ROOT_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: OTOBO_DB_ROOT_PASSWORD
+                  name: env
+            volumeMounts:
+              - mountPath: /opt/otobo
+                name: opt-otobo
+                subPath: otobo
+              - mountPath: /opt/otobo-backup
+                name: backups
+          restartPolicy: OnFailure
+          volumes:
+          - name: opt-otobo
+            persistentVolumeClaim:
+              claimName: opt-otobo
+          - name: backups
+            persistentVolumeClaim:
+              claimName: otobo-backup
