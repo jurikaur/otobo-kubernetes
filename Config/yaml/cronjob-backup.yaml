@@ -30,7 +30,7 @@ spec:
             fsGroup: 1000
           containers:
           - name: backup-job
-            image: rotheross/otobo:rel-10_1_1
+            image: rotheross/otobo:rel-10_1_5
             imagePullPolicy: IfNotPresent
             command:
             - /opt/otobo_install/entrypoint.sh

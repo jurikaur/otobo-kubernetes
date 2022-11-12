@@ -42,7 +42,7 @@ spec:
       containers:
         - command: ["/opt/otobo_install/entrypoint.sh"]
           args: ["daemon"]
-          image: rotheross/otobo:rel-10_1_1
+          image: rotheross/otobo:rel-10_1_5
           name: daemon
           resources: {}
           securityContext:
