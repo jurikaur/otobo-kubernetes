@@ -25,6 +25,16 @@ spec:
       labels:
         io.kompose.service: daemon
     spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: application
+                operator: In
+                values:
+                - otobo
+            topologyKey: kubernetes.io/hostname
       securityContext:
         runAsUser: 1000
         runAsGroup: 1000
