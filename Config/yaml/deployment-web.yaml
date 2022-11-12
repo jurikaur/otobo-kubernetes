@@ -41,8 +41,6 @@ spec:
                   name: env
           image: rotheross/otobo:rel-10_1_5
           name: web
-          labels: 
-            application: otobo
           ports:
             - containerPort: 5000
           resources: {}
