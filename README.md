@@ -1,5 +1,6 @@
 # otobo-kubernetes
 OTOBO repository for Kubernetes.
+tested on 3node K0S cluster with Longhorn storage system.
 1. create namespace
 2. create configmaps
 3. create persistentvolumeclaims
